@@ -2,9 +2,9 @@ const historyService = require('../../../services/history.service')
 
 
 
-exports.getHistoryInfo = async (ctx) => {
+exports.getUserHistory = async (ctx) => {
   const {hid} = ctx.params
-  const historyInfo = await historyService.getHistoryInfo(hid)
+  const historyInfo = await historyService.getUserHistory(hid)
 
   ctx.body = historyInfo
 }

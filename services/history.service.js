@@ -1,16 +1,16 @@
-const { History } = require('../models')
+const { History,Food } = require('../models')
 
-exports.getHistoryInfo = async (hid) => {
-  const history = await History.findOne(
-    {
-      where : {
-        hid
-      }
-    }
-  )
 
-  return history
 
+
+exports.getUserHistory = async(uid) => {
+  const userHistory = await History.findAll({
+    where: {
+      uid
+    },
+    include: {model:Food, as: 'food', required: true}
+  })
+
+  return  userHistory
 }
-
 

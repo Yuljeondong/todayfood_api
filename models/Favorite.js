@@ -1,27 +1,25 @@
 module.exports = (sequelize, DataTypes) => {
-  const history = sequelize.define(
-    'History',
+  const favorite = sequelize.define(
+    'Favorite',
     {
-      hid: {
-        field: 'hid',
+      uid: {
+        field: 'uid',
         type: DataTypes.INTEGER(11),
-        primaryKey: true,
-        autoIncrement: true,
+        primaryKey: true
       },
       fid: {
         field: 'fid',
         type: DataTypes.INTEGER(11),
-        allowNull: false
+        allowNull: false,
+        get() {
+          const value = this.getDataValue('fid')
+          return value === undefined ? null : value.toString()
+        },
       },
-      date: {
-        field: 'date',
-        type: DataTypes.INTEGER(11),
-        allowNull: true
-      }
     },
     {
       classMethods: {},
-      tableName: 'user_history',
+      tableName: 'user_favorites',
       freezeTableName: true,
       underscored: true,
       timestamps: true,
@@ -34,8 +32,10 @@ module.exports = (sequelize, DataTypes) => {
       setterMethods: {},
     },
   )
-  history.associate = (models) => {
-    history.hasOne(models.Food, { as: 'food',foreignKey:'fid' })
-  };
-    return history
+  // Masternode.associate = function(models) {
+  //   // associations can be defined here
+  // };
+
+  return favorite
+
 }

@@ -1,4 +1,4 @@
-const { Player } = require('../models')
+const { Player, History, Favorite } = require('../models')
 
 
 exports.get = () => {}
@@ -14,7 +14,11 @@ exports.getUserid = async (uid) => {
     {
       where : {
         uid
-      }
+      },
+      include: [{model:History, as: 'History', required: false},
+      {model:Favorite, as: 'Favorite', required: false}
+    ],
+
     }
   )
 

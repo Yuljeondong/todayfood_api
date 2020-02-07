@@ -3,7 +3,7 @@ const controller = require('./history.controller')
 
 const router = new Router()
 
-// router.get('/', controller.list)
-router.get('/:hid', controller.getHistoryInfo)
+
+router.get('/:hid', controller.getUserHistory)
 
 module.exports = router
