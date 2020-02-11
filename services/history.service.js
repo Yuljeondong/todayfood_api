@@ -1,16 +1,32 @@
-const { History,Food } = require('../models')
+const { History, Food } = require('../models')
 
 
 
 
-exports.getUserHistory = async(uid) => {
+exports.getUserHistory = async (uid) => {
   const userHistory = await History.findAll({
     where: {
       uid
     },
-    include: {model:Food, as: 'food', required: true}
+    include: { model: Food, as: 'food', required: true }
   })
 
-  return  userHistory
+  return userHistory
 }
 
+
+
+exports.delUserHistory = async (hid) => {
+  const userHistory = await History.destroy({
+    where:{
+      hid
+    },
+  })
+  // findAll({
+  //   where: {
+  //     uid
+  //   },
+  //   include: { model: Food, as: 'food', required: true }
+  // })
+  //return userHistory
+}

@@ -5,5 +5,5 @@ const router = new Router()
 
 
 router.get('/:hid', controller.getUserHistory)
-
+router.delete('/:hid', controller.delUserHistory)
 module.exports = router

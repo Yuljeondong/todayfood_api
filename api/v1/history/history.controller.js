@@ -9,6 +9,14 @@ exports.getUserHistory = async (ctx) => {
   ctx.body = historyInfo
 }
 
+exports.delUserHistory = async (ctx) => {
+  const {hid} = ctx.params
+  const historyInfo = await historyService.delUserHistory(hid)
+
+  ctx.body = historyInfo
+}
+
+
 exports.create = (ctx) => {
   ctx.body = 'created'
 }

@@ -20,35 +20,6 @@ module.exports = (sequelize, DataTypes) => {
           return value === undefined ? null : value.toString()
         },
       },
-      favorList: {
-        field: 'favorite',
-        type: DataTypes.STRING,
-        allowNull: false,
-        // get() {
-        //   const value = this.getDataValue('favorList')
-        //   var values = value.split(',')
-        //   var results = []
-        //   values.forEach(async (element) => {
-
-        //     results.push( await historyService.getHistoryInfo(element))
-        //   });
-        //   const capsuledValue =  results === undefined ? '[]' : '['+value.toString()+']'
-        //   const parsedValue = JSON.parse(capsuledValue)
-        //   return parsedValue
-        // },
-      },
-      historyList: {
-        field: 'history',
-        type: DataTypes.STRING,
-        allowNull: true,
-        // get() {
-        //   const value = this.getDataValue('historyList')
-        //   const capsuledValue =
-        //     value === undefined ? '[]' : `[${value.toString()}]`
-        //   const parsedValue = JSON.parse(capsuledValue)
-        //   return parsedValue
-        // },
-      },
     },
     {
       classMethods: {},
@@ -66,8 +37,8 @@ module.exports = (sequelize, DataTypes) => {
     },
   )
   player.associate = (models) => {
-    player.hasMany(models.History, { as: 'History',foreignKey:'uid' })
-    player.hasMany(models.Favorite, { as: 'Favorite',foreignKey:'uid' })
+    player.hasMany(models.History, { as: 'historyList',foreignKey:'uid' })
+    player.hasMany(models.Favorite, { as: 'favorList',foreignKey:'uid' })
   }
 
   return player
