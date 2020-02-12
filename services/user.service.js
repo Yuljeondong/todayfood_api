@@ -1,4 +1,4 @@
-const { Player, History, Favorite } = require('../models')
+const { Player, History, Favorite, Food } = require('../models')
 
 
 exports.get = () => { }
@@ -15,7 +15,7 @@ exports.getUserid = async (uid) => {
       where: {
         uid
       },
-      include: [{ model: History, as: 'historyList', required: false },
+      include: [{ model: History, include: { model: Food, as: 'food', required: false}, as: 'historyList', required: false },
       { model: Favorite, as: 'favorList', required: false }
       ],
 

@@ -9,6 +9,12 @@ exports.getFoodInfo = async (ctx) => {
   ctx.body = foodInfo
 }
 
+exports.getRecommendList = async (ctx) => {
+  const recommend = await foodService.getRecommend();
+
+  ctx.body = recommend
+}
+
 exports.create = (ctx) => {
   ctx.body = 'created'
 }

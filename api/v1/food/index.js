@@ -5,4 +5,6 @@ const router = new Router()
 
 router.get('/:fid', controller.getFoodInfo)
 
+router.get('/', controller.getRecommendList)
+
 module.exports = router
