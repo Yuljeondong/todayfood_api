@@ -8,15 +8,21 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
         autoIncrement: true,
       },
-      // fid: {
-      //   field: 'fid',
-      //   type: DataTypes.INTEGER(11),
-      //   allowNull: false
-      // },
+      fid: {
+        field: 'fid',
+        type: DataTypes.INTEGER(11),
+        allowNull: false
+      },
       date: {
         field: 'date',
-        type: DataTypes.INTEGER(11),
+        type: DataTypes.DATE(),
         allowNull: true
+      },
+      uid: {
+        field: 'uid',
+        type: DataTypes.INTEGER(11),
+        allowNull: false
+
       }
     },
     {

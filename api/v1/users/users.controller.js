@@ -1,5 +1,6 @@
 
 const userService = require('../../../services/user.service')
+const historyService = require('../../../services/history.service')
 
 
 
@@ -8,6 +9,13 @@ exports.getUserInfo = async (ctx) => {
   const userInfo = await userService.getUserid(uid)
 
   ctx.body = userInfo
+}
+
+exports.inputUserHistory = async (ctx) => {
+  const {uid,fid,date} = ctx.params
+  const result = await historyService.inputUserHistory(uid,fid,date);
+
+  ctx.body = result
 }
 
 // exports.getUserMasternodes = async (ctx) => {

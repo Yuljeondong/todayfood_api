@@ -14,6 +14,15 @@ exports.getUserHistory = async (uid) => {
   return userHistory
 }
 
+exports.inputUserHistory = async (uid,fid,date) =>{
+
+  const result = await History.create({
+    fid: fid,
+    uid: uid,
+    date: date,
+  })
+  return result
+}
 
 
 exports.delUserHistory = async (hid) => {
