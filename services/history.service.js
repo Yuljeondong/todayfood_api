@@ -8,7 +8,7 @@ exports.getUserHistory = async (uid) => {
     where: {
       uid
     },
-    include: { model: Food, as: 'food', required: true }
+    include: { model: Food, as: 'food',required: true }
   })
 
   return userHistory

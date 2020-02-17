@@ -41,7 +41,8 @@ module.exports = (sequelize, DataTypes) => {
     },
   )
   history.associate = (models) => {
-    history.hasOne(models.Food, { as: 'food',foreignKey:'fid' })
+    // history.hasOne(models.Food, { as: 'food',foreignKey:'fid' })
+    history.belongsTo(models.Food, { foreignKey:'fid' })
   };
     return history
 

@@ -15,7 +15,7 @@ exports.getUserid = async (uid) => {
       where: {
         uid
       },
-      include: [{ model: History, include: { model: Food, as: 'food', required: false}, as: 'historyList', required: false },
+      include: [{ model: History,include: { model: Food, as: 'food',where: {fid: 3}, required: false,}, as: 'historyList', required: false },
       { model: Favorite, as: 'favorList', required: false }
       ],
 
