@@ -14,7 +14,7 @@
     "@babel/node": "^7.7.0",
     "@babel/preset-env": "^7.7.1",
     "@koa/cors": "^2.2.3",
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "bcrypt": "^3.0.8",
     "bitcoin-core": "^3.0.0",
     "crypto-random-string": "^1.0.0",
