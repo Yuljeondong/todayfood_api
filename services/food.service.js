@@ -22,9 +22,17 @@ exports.getFoodInfo = async (fid) => {
 
 exports.getRecommend = async () => {
   var recommend = new Array();
+  const foods = await db.Food.findAll({
+  })
+  var count = foods.length;
+
   for (i = 0; i < 3; i++) {
-    recommend.push(getRandomInt(1, 56))
+    var randNo = getRandomInt(0, count - 1)
+    recommend.push(foods[randNo].fid)
+    foods.splice(randNo,1)
+    count = foods.length
   }
+
 
   const food = await db.Food.findAll({
     where: {

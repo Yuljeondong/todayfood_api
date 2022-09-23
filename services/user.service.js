@@ -23,7 +23,6 @@ exports.getUserid = async (uid) => {
   )
 
   return user
-
 }
 
 exports.createContentBestUser = async (id, password) => {

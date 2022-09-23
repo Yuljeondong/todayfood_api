@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       classMethods: {},
-      tableName: 'food_info',
+      tableName: 'ys_food_info',
       freezeTableName: true,
       underscored: true,
       timestamps: true,
@@ -38,9 +38,9 @@ module.exports = (sequelize, DataTypes) => {
       setterMethods: {},
     },
   )
-  food.associate = (models) => {
-    food.belongsToMany(models.Player, { through: 'FoodPlayer' })
-  }
+  // food.associate = (models) => {
+  //   food.belongsToMany(models.Player, { through: 'Player' })
+  // }
 
   return food
 }

@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       classMethods: {},
-      tableName: 'user_info',
+      tableName: 'ys_user_info',
       freezeTableName: true,
       underscored: true,
       timestamps: true,

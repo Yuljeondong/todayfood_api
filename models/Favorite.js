@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       classMethods: {},
-      tableName: 'user_favorites',
+      tableName: 'ys_user_favorites',
       freezeTableName: true,
       underscored: true,
       timestamps: true,

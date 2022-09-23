@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       classMethods: {},
-      tableName: 'user_history',
+      tableName: 'ys_user_history',
       freezeTableName: true,
       underscored: true,
       timestamps: true,
@@ -42,7 +42,7 @@ module.exports = (sequelize, DataTypes) => {
   )
   history.associate = (models) => {
     // history.hasOne(models.Food, { as: 'food',foreignKey:'fid' })
-    history.belongsTo(models.Food, { foreignKey:'fid' })
+    history.belongsTo(models.Food, { as: 'food',foreignKey:'fid' })
   };
     return history
 
