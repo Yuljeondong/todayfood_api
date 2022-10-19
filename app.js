@@ -9,8 +9,7 @@ const passport = require('koa-passport')
 const app = new Koa()
 const router = new Router()
 const models = require("./models")
-
-
+const db = require('./lib/mongodb')
 
 
 // v1 추가
@@ -73,7 +72,7 @@ router.use('/api/v1/users', users.routes())
 router.use('/api/v1/food', food.routes())
 
 router.use('/api/v1/history', history.routes())
-
+db();
 models.sequelize.sync().then(() => {
   app.listen(53255, () => {
     console.log('Coincore Apiserver on port : 53255')
