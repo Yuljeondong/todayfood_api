@@ -10,11 +10,6 @@ module.exports = (sequelize, DataTypes) => {
       fid: {
         field: 'fid',
         type: DataTypes.INTEGER(11),
-        allowNull: false,
-        get() {
-          const value = this.getDataValue('fid')
-          return value === undefined ? null : value.toString()
-        },
       },
     },
     {
