@@ -9,6 +9,34 @@ exports.getFoodInfo = async (ctx) => {
   ctx.body = foodInfo
 }
 
+exports.setFoodThumb = async (ctx) => {
+  const foodInfo = await foodService.setFoodThumb()
+
+  ctx.body = foodInfo
+}
+
+exports.getAllFoodInfo = async (ctx) => {
+  const foodInfo = await foodService.getAllFoodInfo()
+
+  ctx.body = foodInfo
+}
+
+exports.getAllFoodTags = async (ctx) => {
+  const foodTags = await foodService.getFoodVectors()
+  ctx.body = foodTags
+}
+exports.getContestBasedFlitering = async (ctx) => {
+  const {uid} = ctx.request.body
+  const result = await foodService.getContestBasedFlitering(uid)
+  ctx.body = result
+}
+
+exports.getVectors = async (ctx) => {
+  const result = await foodService.getFoodVectors()
+  ctx.body = result
+}
+
+
 exports.getRecommendList = async (ctx) => {
   const recommend = await foodService.getRecommend();
 

@@ -1,46 +1,8 @@
-module.exports = (sequelize, DataTypes) => {
-  const food = sequelize.define(
-    'Food',
-    {
-      fid: {
-        field: 'fid',
-        type: DataTypes.INTEGER(11),
-        primaryKey: true
-      },
-      name: {
-        field: 'name',
-        type: DataTypes.STRING,
-        allowNull: false
-      },
-      thumb: {
-        field: 'thumb',
-        type: DataTypes.STRING,
-        allowNull: true
-      },
-      tagList: {
-        field: 'tag',
-        type: DataTypes.STRING,
-        allowNull: true
-      }
-    },
-    {
-      classMethods: {},
-      tableName: 'ys_food_info',
-      freezeTableName: true,
-      underscored: true,
-      timestamps: true,
-      hooks: {
-        beforeCreate() {
-          // TODO; create작업 전에 해야할 사항들.
-        },
-      },
-      getterMethods: {},
-      setterMethods: {},
-    },
-  )
-  // food.associate = (models) => {
-  //   food.belongsToMany(models.Player, { through: 'Player' })
-  // }
-
-  return food
-}
+const mongoose = require('mongoose')
+const Food = mongoose.model('ys_food_info', new mongoose.Schema({
+  food_name: 'string',
+  thumb: 'string',
+  food_tags: 'array',
+  popularity: 'number'
+}))
+module.exports = Food

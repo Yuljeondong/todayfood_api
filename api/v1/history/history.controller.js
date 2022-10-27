@@ -9,31 +9,20 @@ exports.getUserHistory = async (ctx) => {
   ctx.body = historyInfo
 }
 
+exports.inputUserHistory = async (ctx) => {
+  const {uid,fid} = ctx.request.body
+  const result = await historyService.inputUserHistory(uid,fid);
 
+  ctx.body = result
+}
 
 exports.delUserHistory = async (ctx) => {
-  const {hid} = ctx.params
+  const {hid} = ctx.request.body
   const historyInfo = await historyService.delUserHistory(hid)
 
   ctx.body = historyInfo
 }
 
-
-exports.create = (ctx) => {
-  ctx.body = 'created'
-}
-
-exports.delete = async (ctx) => {
-  ctx.body = 'delete'
-}
-
-exports.replace = (ctx) => {
-  ctx.body = 'replaced'
-}
-
-exports.update = (ctx) => {
-  ctx.body = 'updated'
-}
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 

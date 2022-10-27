@@ -3,8 +3,9 @@ const controller = require('./users.controller')
 
 const router = new Router()
 
-router.get('/:uid', controller.getUserInfo)
-router.post('/:uid/food/:fid/date/:date', controller.inputUserHistory)
+router.get('/uid/:uid', controller.getUserInfobyId)
+router.post('/login', controller.getUserInfo)
+router.post('/register', controller.makeUser)
 router.delete('/:uid/history/:hid')
 
 module.exports = router

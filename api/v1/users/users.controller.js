@@ -1,22 +1,41 @@
 
+const { vary } = require('koa/lib/response')
 const userService = require('../../../services/user.service')
-const historyService = require('../../../services/history.service')
 
 
+exports.getUserInfobyId = async (ctx) => {
+  const {uid} = ctx.params
+  var result = { result : false } 
+  const userInfo = await userService.getUserInfobyId(uid)
+  result.value = userInfo
+  
+if(userInfo !== null && userInfo.id === uid){
+ result.result = true
+}
+
+  ctx.body = result
+}
 
 exports.getUserInfo = async (ctx) => {
-  const {uid} = ctx.params
-  const userInfo = await userService.getUserid(uid)
+  const {loginId,password} = ctx.request.body
+  var result = { result : false } 
+  const userInfo = await userService.getUserInfo(loginId,password)
+  result.value = userInfo
+  
+if(userInfo !== null && userInfo.loginId === loginId){
+ result.result = true
+}
+
+  ctx.body = result
+}
+
+exports.makeUser = async (ctx) => {
+  const {loginId, password, name} = ctx.request.body
+  const userInfo = await userService.makeUser(loginId, password, name)
 
   ctx.body = userInfo
 }
 
-exports.inputUserHistory = async (ctx) => {
-  const {uid,fid,date} = ctx.params
-  const result = await historyService.inputUserHistory(uid,fid,date);
-
-  ctx.body = result
-}
 
 // exports.getUserMasternodes = async (ctx) => {
 //   const {userid} = ctx.state.user
