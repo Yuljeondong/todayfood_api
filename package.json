@@ -30,7 +30,7 @@
     "nodemailer": "^6.0.0",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
-    "sequelize": "^5.21.2",
+    "sequelize": "^6.29.0",
     "useragent": "^2.3.0"
   },
   "devDependencies": {
